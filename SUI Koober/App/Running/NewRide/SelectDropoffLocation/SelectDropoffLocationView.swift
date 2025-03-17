@@ -31,18 +31,31 @@ import SwiftUI
 struct SelectDropoffLocationView : View {
   let locations: [Location] = ["Opera House", "Apple Store", "100 George Street", "MOMA"]
   @State private var searchQuery = ""
+  @Environment(\.presentationMode) var presentationMode
   
   var body: some View {
-    NavigationView {
-      SearchField(searchQuery: $searchQuery)
-      DropoffLocationList(locations: locations, action: select(location:))
-        .navigationBarTitle(Text("Where to?"))
-        .navigationBarItems(leading: CancelButton(action: cancel))
-    }
+      if #available(iOS 16.0, *) {
+          VStack {
+              SearchField(searchQuery: $searchQuery)
+              DropoffLocationList(locations: locations, action: select(location:))
+          }
+              .navigationBarTitle(Text("Where to?"))
+      } else {
+          // Fallback on earlier versions
+          NavigationView {
+              VStack {
+                  SearchField(searchQuery: $searchQuery)
+                  DropoffLocationList(locations: locations, action: select(location:))
+              }
+                  .navigationBarTitle(Text("Where to?"))
+                  .navigationBarItems(leading: CancelButton(action: cancel))
+                  .navigationViewStyle(.stack)
+          }
+      }
   }
   
   func cancel() {
-    // TODO: Implement view dismiss.
+      presentationMode.wrappedValue.dismiss()
   }
   
   func select(location: Location) {
