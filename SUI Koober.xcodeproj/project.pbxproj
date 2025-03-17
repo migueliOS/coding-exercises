@@ -40,6 +40,7 @@
 		323E6C082D87E55B001CDCB4 /* KooberDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F86EE2822B1378600E36C64 /* KooberDependencyContainer.swift */; };
 		323E6C092D87E564001CDCB4 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35695222ADC12E007FA94C /* SignInUseCase.swift */; };
 		323E6C0A2D87E56B001CDCB4 /* SignInUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323E6C022D87E0D4001CDCB4 /* SignInUseCaseProtocol.swift */; };
+		328D50E72D880774001F93C8 /* NewRideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D50E62D880774001F93C8 /* NewRideViewModel.swift */; };
 		9F9F397E22AC7C0F004D2B76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F9F397D22AC7C0F004D2B76 /* Assets.xcassets */; };
 		9F9F398122AC7C0F004D2B76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F9F398022AC7C0F004D2B76 /* Preview Assets.xcassets */; };
 		9F9F398422AC7C0F004D2B76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F9F398222AC7C0F004D2B76 /* LaunchScreen.storyboard */; };
@@ -63,6 +64,7 @@
 		323E6BF72D87DEF7001CDCB4 /* SUI KooberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SUI KooberTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		323E6C002D87DF38001CDCB4 /* SignInUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCaseTests.swift; sourceTree = "<group>"; };
 		323E6C022D87E0D4001CDCB4 /* SignInUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCaseProtocol.swift; sourceTree = "<group>"; };
+		328D50E62D880774001F93C8 /* NewRideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRideViewModel.swift; sourceTree = "<group>"; };
 		60C329EA22BDDDBA007A1C71 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		9F273B7922BB24C800FA6E23 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		9F35695222ADC12E007FA94C /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				9F7A841F22C7F626001FF475 /* SelectDropoffLocation */,
 				9F44520022C97C8C00D6DA78 /* SendNewRideRequest */,
 				9F4451FD22C97BB100D6DA78 /* ConfirmNewRide */,
+				328D50E62D880774001F93C8 /* NewRideViewModel.swift */,
 			);
 			path = NewRide;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				323E6BF22D87D988001CDCB4 /* CenteredContentScrollView.swift in Sources */,
 				2854EE552310D03A004F9E0C /* SignInViewModel.swift in Sources */,
 				2854EE462310C0D4004F9E0C /* ErrorMessage.swift in Sources */,
+				328D50E72D880774001F93C8 /* NewRideViewModel.swift in Sources */,
 				2854EE492310C285004F9E0C /* FullscreenView.swift in Sources */,
 				2854EE5A2310D12C004F9E0C /* LaunchingView.swift in Sources */,
 				2854EE592310D11E004F9E0C /* RunningView.swift in Sources */,

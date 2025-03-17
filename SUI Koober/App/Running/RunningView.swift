@@ -42,7 +42,14 @@ struct RunningView : View {
     case .unauthenticated:
       return AnyView(OnboardView(koober: koober))
     case .authenticated(let userSession):
-      return AnyView(NewRideView(userSession: userSession))
+        if #available(iOS 16.0, *) {
+            return AnyView(
+                NewRideView(viewModel: .init(userSession: userSession))
+            )
+        } else {
+            // Fallback on earlier versions
+            return AnyView(LegacyNewRideView(userSession: userSession))
+        }
     }
   }
 }

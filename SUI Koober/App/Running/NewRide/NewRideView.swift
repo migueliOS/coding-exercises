@@ -29,8 +29,42 @@
 import SwiftUI
 
 /// This view is presented if a user is signed in and ready to start a new ride.
+@available(iOS 16.0, *)
 struct NewRideView : View {
+    
+  @StateObject var viewModel: NewRideViewModel
+  
+  var body: some View {
+      NavigationStack(path: $viewModel.navigationPath) {
+        ZStack(alignment: .top) {
+          MapView()
+          HStack(alignment: .bottom) {
+            Spacer()
+            Image(systemName: "person")
+              .font(.title)
+              .padding(.all)
+          }
+          WhereToButton(action: goToDropoffLocationSelectionScreen)
+            .padding(.top, 60)
+        }
+        .navigationDestination(for: NewRideDestinations.self) { destination in
+            switch destination {
+            case .dropOffLocation:
+                SelectDropoffLocationView()
+            }
+        }
+      }
+  }
+  
+  func goToDropoffLocationSelectionScreen() {
+      viewModel.navigationPath.append(NewRideDestinations.dropOffLocation)
+  }
+}
+
+struct LegacyNewRideView : View {
+    
   let userSession: UserSession
+  @State var showDropOffLocation: Bool = false
   
   var body: some View {
     ZStack(alignment: .top) {
@@ -44,10 +78,13 @@ struct NewRideView : View {
       WhereToButton(action: goToDropoffLocationSelectionScreen)
         .padding(.top, 60)
     }
+    .sheet(isPresented: $showDropOffLocation, content: {
+        SelectDropoffLocationView()
+    })
   }
   
   func goToDropoffLocationSelectionScreen() {
-    // TODO: Navigate to dropoff location selection.
+      showDropOffLocation.toggle()
   }
 }
 
@@ -74,7 +111,7 @@ struct MapView: View {
 #if DEBUG
 struct NewRideView_Previews : PreviewProvider {
   static var previews: some View {
-    NewRideView(userSession: UserSession.fake)
+    LegacyNewRideView(userSession: UserSession.fake)
   }
 }
 #endif
