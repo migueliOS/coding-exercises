@@ -52,9 +52,11 @@ enum StoreAuthenticatedUserSessionError: UserSessionStoreError {
 /// Fake implementation that's used to simulate whether a user is signed in during launch.
 class FakeUserSessionStore: UserSessionStore {
   let userAlreadySignedIn: Bool
+  let shouldFail: Bool
   
-  init(userAlreadySignedIn: Bool) {
+  init(userAlreadySignedIn: Bool, shouldFail: Bool = false) {
     self.userAlreadySignedIn = userAlreadySignedIn
+    self.shouldFail = shouldFail
   }
   
   func getStoredAuthenticatedUserSession() -> Future<UserSession?, GetStoredAuthenticatedUserSessionError> {
@@ -75,9 +77,13 @@ class FakeUserSessionStore: UserSessionStore {
   }
   
   private func fulfill(_ promise: @escaping (Result<UserSession?, GetStoredAuthenticatedUserSessionError>) -> Void) {
-    let result: Result<UserSession?, GetStoredAuthenticatedUserSessionError> =
-      self.userAlreadySignedIn ? .success(UserSession.fake) : .success(nil)
-    promise(result)
+      if shouldFail {
+          promise(.failure(.unknown))
+      } else {
+          let result: Result<UserSession?, GetStoredAuthenticatedUserSessionError> =
+          self.userAlreadySignedIn ? .success(UserSession.fake) : .success(nil)
+          promise(result)
+      }
   }
   
   func store(_ authenticatedUserSession: UserSession) -> Future<UserSession, StoreAuthenticatedUserSessionError> {
@@ -100,6 +106,6 @@ class FakeUserSessionStore: UserSessionStore {
   
   private func fulfillStoreAuthenticatedUser(_ promise: @escaping (Result<UserSession, StoreAuthenticatedUserSessionError>) -> Void,
                                              authenticatedUserSession: UserSession) {
-    promise(.success(authenticatedUserSession))
+      shouldFail ? promise(.failure(.unknown)) : promise(.success(authenticatedUserSession))
   }
 }
