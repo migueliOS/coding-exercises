@@ -31,6 +31,15 @@
 		2854EE5B2310D134004F9E0C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F399522AC857F004D2B76 /* MainView.swift */; };
 		323E6BF02D87D911001CDCB4 /* AdaptableStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323E6BEF2D87D911001CDCB4 /* AdaptableStack.swift */; };
 		323E6BF22D87D988001CDCB4 /* CenteredContentScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323E6BF12D87D988001CDCB4 /* CenteredContentScrollView.swift */; };
+		323E6C012D87DF38001CDCB4 /* SignInUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323E6C002D87DF38001CDCB4 /* SignInUseCaseTests.swift */; };
+		323E6C032D87E0D4001CDCB4 /* SignInUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323E6C022D87E0D4001CDCB4 /* SignInUseCaseProtocol.swift */; };
+		323E6C042D87E232001CDCB4 /* UserSessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8C30F22ADBEB2000F4F50 /* UserSessionStore.swift */; };
+		323E6C052D87E232001CDCB4 /* UserAuthenticationRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8C31122ADBF10000F4F50 /* UserAuthenticationRemoteAPI.swift */; };
+		323E6C062D87E26F001CDCB4 /* Koober.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F399F22ADA25E004D2B76 /* Koober.swift */; };
+		323E6C072D87E552001CDCB4 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F273B7922BB24C800FA6E23 /* ErrorMessage.swift */; };
+		323E6C082D87E55B001CDCB4 /* KooberDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F86EE2822B1378600E36C64 /* KooberDependencyContainer.swift */; };
+		323E6C092D87E564001CDCB4 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35695222ADC12E007FA94C /* SignInUseCase.swift */; };
+		323E6C0A2D87E56B001CDCB4 /* SignInUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323E6C022D87E0D4001CDCB4 /* SignInUseCaseProtocol.swift */; };
 		9F9F397E22AC7C0F004D2B76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F9F397D22AC7C0F004D2B76 /* Assets.xcassets */; };
 		9F9F398122AC7C0F004D2B76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F9F398022AC7C0F004D2B76 /* Preview Assets.xcassets */; };
 		9F9F398422AC7C0F004D2B76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F9F398222AC7C0F004D2B76 /* LaunchScreen.storyboard */; };
@@ -38,9 +47,22 @@
 		9FE8C31222ADBF10000F4F50 /* UserAuthenticationRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8C31122ADBF10000F4F50 /* UserAuthenticationRemoteAPI.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		323E6BFB2D87DEF7001CDCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F9F396C22AC7C0E004D2B76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F9F397322AC7C0E004D2B76;
+			remoteInfo = "SUI Koober";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		323E6BEF2D87D911001CDCB4 /* AdaptableStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptableStack.swift; sourceTree = "<group>"; };
 		323E6BF12D87D988001CDCB4 /* CenteredContentScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredContentScrollView.swift; sourceTree = "<group>"; };
+		323E6BF72D87DEF7001CDCB4 /* SUI KooberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SUI KooberTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		323E6C002D87DF38001CDCB4 /* SignInUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCaseTests.swift; sourceTree = "<group>"; };
+		323E6C022D87E0D4001CDCB4 /* SignInUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCaseProtocol.swift; sourceTree = "<group>"; };
 		60C329EA22BDDDBA007A1C71 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		9F273B7922BB24C800FA6E23 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		9F35695222ADC12E007FA94C /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -73,6 +95,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		323E6BF42D87DEF7001CDCB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9F9F397122AC7C0E004D2B76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		323E6BF82D87DEF7001CDCB4 /* SUI KooberTests */ = {
+			isa = PBXGroup;
+			children = (
+				323E6C002D87DF38001CDCB4 /* SignInUseCaseTests.swift */,
+			);
+			path = "SUI KooberTests";
+			sourceTree = "<group>";
+		};
 		9F273B7822BB24AE00FA6E23 /* ReusableModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				9F35695222ADC12E007FA94C /* SignInUseCase.swift */,
+				323E6C022D87E0D4001CDCB4 /* SignInUseCaseProtocol.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -135,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				9F9F397622AC7C0E004D2B76 /* SUI Koober */,
+				323E6BF82D87DEF7001CDCB4 /* SUI KooberTests */,
 				9F9F397522AC7C0E004D2B76 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				9F9F397422AC7C0E004D2B76 /* SUI Koober.app */,
+				323E6BF72D87DEF7001CDCB4 /* SUI KooberTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,6 +299,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		323E6BF62D87DEF7001CDCB4 /* SUI KooberTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 323E6BFF2D87DEF8001CDCB4 /* Build configuration list for PBXNativeTarget "SUI KooberTests" */;
+			buildPhases = (
+				323E6BF32D87DEF7001CDCB4 /* Sources */,
+				323E6BF42D87DEF7001CDCB4 /* Frameworks */,
+				323E6BF52D87DEF7001CDCB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				323E6BFC2D87DEF7001CDCB4 /* PBXTargetDependency */,
+			);
+			name = "SUI KooberTests";
+			productName = "SUI KooberTests";
+			productReference = 323E6BF72D87DEF7001CDCB4 /* SUI KooberTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9F9F397322AC7C0E004D2B76 /* SUI Koober */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F9F398822AC7C0F004D2B76 /* Build configuration list for PBXNativeTarget "SUI Koober" */;
@@ -282,10 +340,14 @@
 		9F9F396C22AC7C0E004D2B76 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Razeware;
 				TargetAttributes = {
+					323E6BF62D87DEF7001CDCB4 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 9F9F397322AC7C0E004D2B76;
+					};
 					9F9F397322AC7C0E004D2B76 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -305,11 +367,19 @@
 			projectRoot = "";
 			targets = (
 				9F9F397322AC7C0E004D2B76 /* SUI Koober */,
+				323E6BF62D87DEF7001CDCB4 /* SUI KooberTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		323E6BF52D87DEF7001CDCB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9F9F397222AC7C0E004D2B76 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +393,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		323E6BF32D87DEF7001CDCB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				323E6C012D87DF38001CDCB4 /* SignInUseCaseTests.swift in Sources */,
+				323E6C0A2D87E56B001CDCB4 /* SignInUseCaseProtocol.swift in Sources */,
+				323E6C062D87E26F001CDCB4 /* Koober.swift in Sources */,
+				323E6C092D87E564001CDCB4 /* SignInUseCase.swift in Sources */,
+				323E6C082D87E55B001CDCB4 /* KooberDependencyContainer.swift in Sources */,
+				323E6C072D87E552001CDCB4 /* ErrorMessage.swift in Sources */,
+				323E6C042D87E232001CDCB4 /* UserSessionStore.swift in Sources */,
+				323E6C052D87E232001CDCB4 /* UserAuthenticationRemoteAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9F9F397022AC7C0E004D2B76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -338,6 +423,7 @@
 				2854EE4C2310C2A0004F9E0C /* SceneDelegate.swift in Sources */,
 				2854EE582310D112004F9E0C /* OnboardView.swift in Sources */,
 				9FE8C31022ADBEB2000F4F50 /* UserSessionStore.swift in Sources */,
+				323E6C032D87E0D4001CDCB4 /* SignInUseCaseProtocol.swift in Sources */,
 				2854EE442310C0BF004F9E0C /* KooberDependencyContainer.swift in Sources */,
 				2854EE4D2310CD99004F9E0C /* UserProfileView.swift in Sources */,
 				2854EE562310D052004F9E0C /* SignInView.swift in Sources */,
@@ -358,6 +444,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		323E6BFC2D87DEF7001CDCB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F9F397322AC7C0E004D2B76 /* SUI Koober */;
+			targetProxy = 323E6BFB2D87DEF7001CDCB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		9F9F398222AC7C0F004D2B76 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -370,6 +464,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		323E6BFD2D87DEF8001CDCB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9A5DG2U5Z8;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.migloren.SUI-KooberTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SUI Koober.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SUI Koober";
+			};
+			name = Debug;
+		};
+		323E6BFE2D87DEF8001CDCB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9A5DG2U5Z8;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.migloren.SUI-KooberTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SUI Koober.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SUI Koober";
+			};
+			name = Release;
+		};
 		9F9F398622AC7C0F004D2B76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -527,6 +672,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		323E6BFF2D87DEF8001CDCB4 /* Build configuration list for PBXNativeTarget "SUI KooberTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				323E6BFD2D87DEF8001CDCB4 /* Debug */,
+				323E6BFE2D87DEF8001CDCB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9F9F396F22AC7C0E004D2B76 /* Build configuration list for PBXProject "SUI Koober" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

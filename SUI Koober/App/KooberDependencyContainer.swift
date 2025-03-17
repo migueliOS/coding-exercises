@@ -49,6 +49,6 @@ final class KooberDependencyContainer {
   
   /// Makes a new user authentication remote API for authenticating users using the cloud.
   func makeUserAuthenticationRemoteAPI() -> UserAuthenticationRemoteAPI {
-    return FakeUserAuthenticationRemoteAPI()
+      return FakeUserAuthenticationRemoteAPI(success: true)
   }
 }

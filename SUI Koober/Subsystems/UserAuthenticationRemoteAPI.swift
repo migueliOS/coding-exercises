@@ -66,6 +66,15 @@ extension SignInError {
 }
 
 class FakeUserAuthenticationRemoteAPI: UserAuthenticationRemoteAPI {
+    
+  private let success: Bool
+  private let errorType: SignInError?
+    
+  init(success: Bool, errorType: SignInError? = nil) {
+      self.success = success
+      self.errorType = errorType
+  }
+    
   func signIn(username: String, password: String) -> Future<UserSession, SignInError> {
     let future = Future<UserSession, SignInError> { promise in
       self.fakeSignIn(promise: promise)
@@ -77,7 +86,13 @@ class FakeUserAuthenticationRemoteAPI: UserAuthenticationRemoteAPI {
     DispatchQueue.global().async {
       sleep(1)
       DispatchQueue.main.async {
-        promise(.success(UserSession.fake))
+          if self.success {
+              promise(.success(UserSession.fake))
+          } else if let errorType = self.errorType {
+              promise(.failure(errorType))
+          } else {
+              promise(.failure(.unknown))
+          }
       }
     }
   }

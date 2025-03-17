@@ -31,3 +31,17 @@
 * In order to ensure compatibility with smaller sized screens and Dynamic Type, we're going to enclose the content of the welcome screen within a scrollView that centeres its content just like the initial design (and it will strat scrolling as the content exceeds the scroll view bounds). For that I've created a `CenteredContentScrollView` that relys on a `ViewModifier` that reads the content's height by using a custom `PreferenceKey` that feed a `@Binding` property so we can center the content accordingly using `Spacers`.
 * While launching to test this Task 1, couldn't help but to notice another inacessible text at the launch screen so I modified that using our new `Text` color.
 * Finally, after the fix and verifying that the buttons were interactive and looking good on any platform, size class and orientation, I realised that the landscape display on iPhone was quite difficult to read and interact with (despite of having a scroll to view all content). I thought that it could be better to split the view in 2 parts, the logo on the left side and the buttons on the right. For what I created a utility view that switches between `VStack` and `HStack` only when we are on an `iPhone` device and `Landscape` orientation. As `iPad` has enough vertical room to show all content even on landscape and biggest dynamic type size. This way, our intended design remains consistent across majority of layouts, only adapting nicely when `iPhone` is on landscape.
+## Task 2
+- I can see there are no tests at all so let's start by creating a target for it (`UnitTest bundle`)
+- Let's remove the default file and create our own XCTestCase swift file for testing `SignInUseCase`
+- The class `SignInUseCase` is already using Dependency Injection because it depens on protocols `UserAuthenticationRemoteAPI` and `UserSessionStore` rathern than other classes. This makes testing easier because we can inject mock implementations there.
+- However, we can improve testability and scalability (different methods of signing in) by extracting SignInUseCase into a protocol as well. We could also inject this into a `viewModel` in the future and make it flexible and testable. In addition to cleaner and more readable.
+- `signIn()` and `store` should probably just be private as they're only use within `SignInUseCase` scope.
+- I could see we can make use of the `fakes` created in `Koober.swift` file.
+- Of course I had to made available (linked) all the involved files in the new Test target in order to be able to unit test them.
+- Firstly, let's test the implementation of the new protocol. Then, let's test the following scenarios: Successful login, Failed unauthorised, Failed unknown, Successful but Store fails and some isolated test for Session store (already signed int and not signed in).
+- It's great to have Fake implementations already there for both remote API and Session Store. However, in order to cover failure with both cases for `SignInError` on `RemoteAPI` we need to modify it with a few exra parameters `success: Bool` and `errorType: SignInError?`
+- Same for the `FakeUserSessionStore`.
+- 5 seconds should be sufficient time to wait for the expectation and cover all the sleeps that are included on the Fake implementations.
+- Lastly, let's add a path to check if the SessionStore fails after successfull login.
+- To verify the accuracy of my tests I run them repeatedly for 50 times and ensure it always succeeds. Specially when handling expectations and timeouts.

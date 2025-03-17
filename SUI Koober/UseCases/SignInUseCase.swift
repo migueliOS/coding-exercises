@@ -30,7 +30,7 @@ import Foundation
 import Combine
 
 /// Use case for signing in users. Attempts to remotely authenticate user and stores the user's session.
-class SignInUseCase {
+class SignInUseCase: SignInUseCaseProtocol {
   let username: String
   let password: String
   
@@ -54,7 +54,9 @@ class SignInUseCase {
     return future
   }
   
-  func signIn() -> AnyPublisher<UserSession, ErrorMessage> {
+  // MARK: - Private
+    
+  private func signIn() -> AnyPublisher<UserSession, ErrorMessage> {
     let future =
       remoteAPI.signIn(username: username, password: password)
         .mapError { signInError in
@@ -64,7 +66,7 @@ class SignInUseCase {
     return future
   }
   
-  func store(authenticatedUserSession: UserSession) -> AnyPublisher<UserSession, ErrorMessage> {
+  private func store(authenticatedUserSession: UserSession) -> AnyPublisher<UserSession, ErrorMessage> {
     let future =
       userSessionStore.store(authenticatedUserSession)
         .mapError { storeAuthenticatedUserSessionError in
