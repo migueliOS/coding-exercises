@@ -33,9 +33,19 @@ struct OnboardView : View {
   @ObservedObject var koober: Koober
   
   var body: some View {
-    NavigationView {
-      WelcomeView(koober: koober)
-    }
+      if #available(iOS 16.0, *) {
+          NavigationStack {
+              WelcomeView(koober: koober)
+                  .toolbarBackground(Color("BackgroundColor"), for: .navigationBar)
+                  .toolbarBackground(.visible, for: .navigationBar)
+          }
+      } else {
+          // Fallback on earlier versions
+          NavigationView {
+              WelcomeView(koober: koober)
+          }
+          .navigationViewStyle(.stack)
+      }
   }
 }
 

@@ -30,18 +30,20 @@ import SwiftUI
 
 /// This view welcomes the user and asks the user to either sign in or sign up.
 struct WelcomeView : View {
-  @ObservedObject var koober: Koober
-  
-  var body: some View {
-    VStack {
-      Spacer()
-      WelcomeContentView(koober: koober)
-      Spacer()
+    @ObservedObject var koober: Koober
+    
+    var body: some View {
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Spacer()
+                WelcomeContentView(koober: koober)
+                Spacer()
+            }
+        }
+        .navigationBarTitle(Text("Welcome"))
     }
-    .background(Color("BackgroundColor"))
-    .edgesIgnoringSafeArea(.bottom)
-    .navigationBarTitle(Text("Welcome"))
-  }
 }
 
 #if DEBUG
@@ -54,37 +56,39 @@ struct WelcomeView_Previews : PreviewProvider {
 
 /// App logo, sign in and sign up buttons.
 private struct WelcomeContentView : View {
-  @ObservedObject var koober: Koober
-  
-  var body: some View {
-    VStack {
-      Image("roo_logo").background(Color("BackgroundColor"))
-      SignInSignUpButtons(koober: koober)
+    @ObservedObject var koober: Koober
+    
+    var body: some View {
+        CenteredContentScrollView {
+            AdaptableStack {
+                Spacer()
+                Image("roo_logo").background(Color("BackgroundColor"))
+                SignInSignUpButtons(koober: koober)
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+        }
     }
-    .background(Color("BackgroundColor"))
-    .padding()
-  }
 }
 
 private struct SignInSignUpButtons : View {
-  @ObservedObject var koober: Koober
-  
-  var body: some View {
-    HStack {
-      
-      NavigationLink(destination: SignInView(viewModel: SignInViewModel(startSignInUseCase: koober.startSignInUseCase))) {
-        Text("Sign In")
-      }
-      .accentColor(.white)
-      .padding()
-      
-      Spacer()
-      
-      NavigationLink(destination: SignUpView()) {
-        Text("Sign Up")
-      }
-      .accentColor(.white)
-      .padding()
+    @ObservedObject var koober: Koober
+    
+    var body: some View {
+        VStack(spacing: 24) {
+            
+            NavigationLink(destination: SignInView(viewModel: SignInViewModel(startSignInUseCase: koober.startSignInUseCase))) {
+                Text("Sign In")
+                    .bold()
+            }
+            .accentColor(Color("Text"))
+            
+            NavigationLink(destination: SignUpView()) {
+                Text("Sign Up")
+                    .bold()
+            }
+            .accentColor(Color("Text"))
+        }
+        .padding()
     }
-  }
 }

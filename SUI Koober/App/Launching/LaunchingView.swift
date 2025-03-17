@@ -38,7 +38,7 @@ struct LaunchingView : View {
       HStack {
         Text("Launching...")
           .font(.headline)
-          .foregroundColor(.white)
+          .foregroundColor(Color("Text"))
           .padding()
       }
       .background(Color("BackgroundColor"))
